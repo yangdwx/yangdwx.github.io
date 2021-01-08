@@ -3,26 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/</loc>
+    <loc>https://yangdwx.github.io/posts/html%E7%AC%94%E8%AE%B01/</loc>
+    <lastmod>2021-01-08T23:01:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yangdwx.github.io/</loc>
+    <lastmod>2021-01-08T23:01:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yangdwx.github.io/posts/</loc>
+    <lastmod>2021-01-08T23:01:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yangdwx.github.io/posts/my-first-blog/</loc>
     <lastmod>2021-01-08T15:59:35+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/posts/my-first-blog/</loc>
-    <lastmod>2021-01-08T15:59:35+08:00</lastmod>
+    <loc>https://yangdwx.github.io/categories/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/posts/</loc>
-    <lastmod>2021-01-08T15:59:35+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://example.org/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://yangdwx.github.io/tags/</loc>
   </url>
   
 </urlset>
