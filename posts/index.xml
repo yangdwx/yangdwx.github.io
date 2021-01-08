@@ -13,14 +13,10 @@
       <pubDate>Fri, 08 Jan 2021 23:01:13 +0800</pubDate>
       
       <guid>https://yangdwx.github.io/posts/html%E7%AC%94%E8%AE%B01/</guid>
-      <description>#HTML
-##W3C
-万维网联盟（World Wide Web Consortium W3C），又称 W3C 理事会，是万维网的主要国际标准组织。
-##MDN
-Mozilla Developer Network（简称 MDN）
-##HTML
-超文本标记语言（HyperText Markup Language）
- HTML 版本 （由 W3C 组织制定） DOCTYPE：用来选择文档类型。（! + TAB） 常见标签  章节标签（语义结构）  标题：&amp;lt;h1&amp;gt;~&amp;lt;h6&amp;gt; 章节：&amp;lt;section&amp;gt; 文章：&amp;lt;article&amp;gt; 头部：&amp;lt;header&amp;gt; 脚部：&amp;lt;footer&amp;gt; 主要内容：&amp;lt;main&amp;gt; 旁支内容：&amp;lt;aside&amp;gt; 导航：&amp;lt;nav&amp;gt; 多级标题：&amp;lt;hgroup&amp;gt;   常用文本标签  段落：&amp;lt;p&amp;gt; 划分：&amp;lt;div&amp;gt; 行内：&amp;lt;span&amp;gt; 换行：&amp;lt;br&amp;gt; &amp;lt;wbr&amp;gt; 分隔线：&amp;lt;hr&amp;gt; 保留样式：&amp;lt;pre&amp;gt; 强调：&amp;lt;em&amp;gt; &amp;lt;strong&amp;gt; 上标：&amp;lt;sup&amp;gt; 下标：&amp;lt;sub&amp;gt; 代码 or 变量：&amp;lt;var&amp;gt; 删除线：&amp;lt;s&amp;gt; 引用：&amp;lt;blockquote&amp;gt; &amp;lt;q&amp;gt; 计算机代码（等宽显示）：&amp;lt;code&amp;gt; 按键（等宽显示）：&amp;lt;kbd&amp;gt; 计算机输出（等宽显示）：&amp;lt;samp&amp;gt; 行内标记文本（黄色高亮）：&amp;lt;mark&amp;gt; 注音：&amp;lt;ruby&amp;gt;   列表标签  有序列表：&amp;lt;ol&amp;gt; + &amp;lt;li&amp;gt; 无序列表：&amp;lt;ul&amp;gt; + &amp;lt;li&amp;gt; &amp;lt;dl&amp;gt; + &amp;lt;li&amp;gt; + &amp;lt;dd&amp;gt;     全局属性（global attributes）是所有元素都可以使用的属性。  id 属性是元素在网页内的唯一标识符。  属性的值必须是全局唯一，同一页面不能有两个相通的id属性。 属性的值不得包含空格。 可以在属性值前面加上#作为锚点，定位该元素在网页的位置。   class属性同来对网页元素进行分类。 title属性用来为元素添加附加说明。大多数浏览器中，鼠标悬浮在元素上面时，会将title属性值作为浮动提示，显示出来。 tabindex属性用来使用 Tab 键，遍历网页元素。  tabindex 可以是正数，不必是连续的。 tabindex 可以是 0，表示最后才被 tab 访问。 tabindex 可以是 -1，表示不可被 tab 访问。   accesskey属性指定网页元素获得焦点的快捷键，该属性的值必须是单个的可打印字符。只要按下快捷键，该元素就会得到焦点。  Windows 和 Linux：Alt + 字符键 MAC：Ctrl + Alt + 字符键   style属性是标签的内联 CSS 样式。 hidden隐藏页面上的元素（优先级地域 CSS 可见性设置） contenteditable属性允许用户修改内容。    </description>
+      <description>HTML W3C 万维网联盟（World Wide Web Consortium W3C），又称 W3C 理事会，是万维网的主要国际标准组织。
+MDN Mozilla Developer Network（简称 MDN）
+HTML 超文本标记语言（HyperText Markup Language）
+ HTML 版本 （由 W3C 组织制定） DOCTYPE：用来选择文档类型。&amp;lt;!DOCTYPE html&amp;gt;（! + TAB） 常见标签  章节标签（语义结构）  标题：&amp;lt;h1&amp;gt;~&amp;lt;h6&amp;gt; 章节：&amp;lt;section&amp;gt; 文章：&amp;lt;article&amp;gt; 头部：&amp;lt;header&amp;gt; 脚部：&amp;lt;footer&amp;gt; 主要内容：&amp;lt;main&amp;gt; 旁支内容：&amp;lt;aside&amp;gt; 导航：&amp;lt;nav&amp;gt; 多级标题：&amp;lt;hgroup&amp;gt;   常用文本标签  段落：&amp;lt;p&amp;gt; 划分：&amp;lt;div&amp;gt; 行内：&amp;lt;span&amp;gt; 换行：&amp;lt;br&amp;gt; &amp;lt;wbr&amp;gt; 分隔线：&amp;lt;hr&amp;gt; 保留样式：&amp;lt;pre&amp;gt; 强调：&amp;lt;em&amp;gt; &amp;lt;strong&amp;gt; 上标：&amp;lt;sup&amp;gt; 下标：&amp;lt;sub&amp;gt; 代码 or 变量：&amp;lt;var&amp;gt; 删除线：&amp;lt;s&amp;gt; 引用：&amp;lt;blockquote&amp;gt; &amp;lt;q&amp;gt; 计算机代码（等宽显示）：&amp;lt;code&amp;gt; 按键（等宽显示）：&amp;lt;kbd&amp;gt; 计算机输出（等宽显示）：&amp;lt;samp&amp;gt; 行内标记文本（黄色高亮）：&amp;lt;mark&amp;gt; 注音：&amp;lt;ruby&amp;gt;   列表标签  有序列表：&amp;lt;ol&amp;gt; + &amp;lt;li&amp;gt; 无序列表：&amp;lt;ul&amp;gt; + &amp;lt;li&amp;gt; &amp;lt;dl&amp;gt; + &amp;lt;li&amp;gt; + &amp;lt;dd&amp;gt;     全局属性（global attributes）是所有元素都可以使用的属性。  id 属性是元素在网页内的唯一标识符。  属性的值必须是全局唯一，同一页面不能有两个相通的id属性。 属性的值不得包含空格。 可以在属性值前面加上#作为锚点，定位该元素在网页的位置。   class属性同来对网页元素进行分类。 title属性用来为元素添加附加说明。大多数浏览器中，鼠标悬浮在元素上面时，会将title属性值作为浮动提示，显示出来。 tabindex属性用来使用 Tab 键，遍历网页元素。  tabindex 可以是正数，不必是连续的。 tabindex 可以是 0，表示最后才被 tab 访问。 tabindex 可以是 -1，表示不可被 tab 访问。   accesskey属性指定网页元素获得焦点的快捷键，该属性的值必须是单个的可打印字符。只要按下快捷键，该元素就会得到焦点。  Windows 和 Linux：Alt + 字符键 MAC：Ctrl + Alt + 字符键   style属性是标签的内联 CSS 样式。 hidden隐藏页面上的元素（优先级地域 CSS 可见性设置） contenteditable属性允许用户修改内容。    </description>
     </item>
     
     <item>
