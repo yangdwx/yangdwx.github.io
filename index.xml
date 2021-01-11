@@ -6,7 +6,26 @@
     <description>Recent content on My blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Fri, 08 Jan 2021 23:01:13 +0800</lastBuildDate><atom:link href="https://yangdwx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Jan 2021 15:29:12 +0800</lastBuildDate><atom:link href="https://yangdwx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTML笔记2</title>
+      <link>https://yangdwx.github.io/posts/html%E7%AC%94%E8%AE%B02/</link>
+      <pubDate>Mon, 11 Jan 2021 15:29:12 +0800</pubDate>
+      
+      <guid>https://yangdwx.github.io/posts/html%E7%AC%94%E8%AE%B02/</guid>
+      <description>HTML 标签 &amp;lt;a&amp;gt;标签 &amp;lt;a&amp;gt;标签定义超链接，用于从一个页面链接到另一个页面
+  href 属性
+i. 网址
+ &amp;lt;a href=&amp;quot;google.com&amp;gt;google&amp;lt;/a&amp;gt;&amp;quot; 相对路径，会在当前目录下查找 &amp;ldquo;qq.com&amp;rdquo;。 &amp;lt;a href=&amp;quot;http://goolge.com&amp;quot;&amp;gt;google&amp;lt;/a&amp;gt; 跳转链接表明 HTTP 或 HTTPS 协议。 &amp;lt;a href=&amp;quot;/goolge.com&amp;quot;&amp;gt;google&amp;lt;/a&amp;gt; 浏览器根据当前协议，补全无协议链接。  ii. 锚点
+ &amp;lt;a href=&amp;quot;#xxx&amp;quot;&amp;gt;google&amp;lt;/a&amp;gt; 跳转到 id=xxx 的页面位置。  iii. 路径
+ /a/b/c 以及 a/b/c Index.html 以及./index.html  iiii. 伪协议
+  &amp;lt;a href=&amp;quot;javascript: alert();&amp;quot;&amp;gt;google&amp;lt;/a&amp;gt; 伪协议，点击会直接执行js语句。
+&amp;lt;a href=&amp;quot;javascript:;&amp;quot;&amp;gt;google&amp;lt;/a&amp;gt; 可以完美实现点击链接无事发生。
+  &amp;lt;a href=&amp;quot;mailto:yangdwx@163.com&amp;quot;&amp;gt;email&amp;lt;/a&amp;gt;  点击发起邮件，一般拉起邮箱客户端。
+  &amp;lt;a href=&amp;quot;tell:13xxxxxxxxx&amp;quot;&amp;gt;tell&amp;lt;/a&amp;gt; 点击拨打电话。
+    target 属性</description>
+    </item>
+    
     <item>
       <title>HTML笔记1</title>
       <link>https://yangdwx.github.io/posts/html%E7%AC%94%E8%AE%B01/</link>
