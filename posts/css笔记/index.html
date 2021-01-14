@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<title>CSS基础知识点 | My blog</title>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.79.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://yangdwx.github.io/css/index.css">
+<link rel="canonical" href="https://yangdwx.github.io/posts/css%E7%AC%94%E8%AE%B0/">
+<link rel="alternate" type="application/rss+xml" href="" title="My blog">
+
+<header>
+  
+    <a href="https://yangdwx.github.io/">My blog</a>
+  
+  
+</header>
+
+<article>
+  <header>
+    <h1>CSS基础知识点</h1>
+    <time datetime="2021-01-14T19:14:59&#43;08:00">January 14, 2021</time>
+  </header>
+  <h1 id="css基础知识点">CSS基础知识点</h1>
+<h2 id="文档流">文档流</h2>
+<ol>
+<li>
+<p><strong>流动方向</strong></p>
+<ul>
+<li>
+<p><code>inline</code> 元素从左到右，到达最右边才会换行。</p>
+</li>
+<li>
+<p><code>block </code>元素从上到下，没一个元素都占独立的一行，新元素会另起一行。</p>
+</li>
+<li>
+<p><code>inline-block</code> 元素从左到右，到达最右边才会换行，但不会强行拆分元素。</p>
+<p><img src="/images/css1.png" alt=""></p>
+<blockquote>
+<ul>
+<li>
+<p>新的 HTML5 里可以不分内联元素和块级元素，具体情况由默认样式决定，可以设定更改。</p>
+</li>
+<li>
+<p><code>inline-block</code> 元素不会有外边距合并现象。</p>
+</li>
+<li>
+<p>非特定情况下永远不要写<code>width: 100%</code>。</p>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>宽度</strong></p>
+<ul>
+<li><code>inline</code> 宽度为内部 <code>inline</code> 元素的和自适应，不能用 <code>width</code> 属性进行设置。</li>
+<li><code>block</code> 默认自动计算宽度，可以用 <code>width</code> 属性进行设置。</li>
+<li><code>inline-block</code> 结合前两者特点，可以设置宽度。</li>
+</ul>
+</li>
+<li>
+<p><strong>高度</strong></p>
+<ul>
+<li><code>inline</code> 高度由 <code>line-height</code> 间接决定，跟 <code>height</code> 无关。</li>
+<li><code>block</code> 高度由内部文档流元素决定，可以用 <code>height</code> 值进行设置。</li>
+<li><code>inline-block</code> 与 <code>block</code> 类似，可以设置高度。</li>
+</ul>
+</li>
+<li>
+<p><strong>overflow</strong></p>
+<p>当内容的宽度或高度大于容器，则会溢出，可以用<code>overflow</code> 属性来设置溢出内容的显示方式。</p>
+<ul>
+<li><code>overflow: auto</code> 灵活设置，当内容溢出时自动显示滚动条，否则滚动条界面消失。</li>
+<li><code>overflow: scroll</code> 永远显示滚动条。</li>
+<li><code>overflow: hidden</code> 隐藏溢出部分的内容。</li>
+<li><code>overflow: visible</code> 直接在页面上显示溢出内容。</li>
+<li><code>overflow</code> 可以分为 <code>overflow-x </code>和 <code>overflow-y</code></li>
+</ul>
+</li>
+<li>
+<p><strong>脱离文档流</strong></p>
+<p>可以使用 <code>float</code> 属性 <code>right/left</code> 和 <code>position</code> 属性 <code>absolute/fixed</code> 来使某个元素脱离文档流，这样父级元素或容器计算尺寸时会忽略该元素。</p>
+<p><img src="/images/css2.png" alt=""></p>
+</li>
+</ol>
+<h2 id="盒模型">盒模型</h2>
+<p>CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：边距<code>margin</code>，边框<code>border</code>，内填充 <code>padding</code>，和实际内容 content。</p>
+<ul>
+<li>
+<p><strong>Margin(外边距)</strong> - 清除边框外的区域，外边距是透明的。</p>
+</li>
+<li>
+<p><strong>Border(边框)</strong> - 围绕在内边距和内容外的边框。</p>
+</li>
+<li>
+<p><strong>Padding(内边距)</strong> - 清除内容周围的区域，内边距是透明的。</p>
+</li>
+<li>
+<p><strong>Content(内容)</strong> - 盒子的内容，显示文本和图像。</p>
+<p><img src="/images/css3.jpeg" alt=""></p>
+</li>
+</ul>
+<p>盒模型在实际使用中根据计算方式的不同又分为<strong>标准盒模型（content-box）<strong>和</strong>怪异盒模型（border-box）</strong>。</p>
+<ul>
+<li>
+<p><strong>标准盒模型</strong></p>
+<p><img src="/images/css4.png" alt=""></p>
+<p>盒模型高度和宽度 = 内容高度和宽度</p>
+</li>
+<li>
+<p><strong>怪异盒模型</strong></p>
+<p><img src="/images/css5.png" alt=""></p>
+<p>盒模型高度和宽度 = 内容高度和宽度 + <code>padding</code> + <code>border</code></p>
+<blockquote>
+<p>一般来说 border-box 用的更多一点</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="margin-合并">margin 合并</h2>
+<p>块级元素的顶部外边距和底部外边距有时被组合(折叠)为单个外边距，其大小是组合到其中的最大外边距，这种行为称为<strong>外边距合并</strong>（只合并顶部和底部外边距）。</p>
+<ul>
+<li>
+<p><strong>相邻兄弟元素合并</strong></p>
+<p><img src="/images/css6.png" alt=""></p>
+<blockquote>
+<p>阻止兄弟元素合并：添加 <code>inline-block</code> 属性。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>父子元素合并</strong></p>
+<p><img src="/images/css7.png" alt=""></p>
+<blockquote>
+<p>给父级元素添加 <code>border/padding</code>。</p>
+<p>给父级元素添加 <code>display:flex</code>。</p>
+<p>给父级元素添加 <code>overflow: hidden</code>。</p>
+</blockquote>
+</li>
+</ul>
+
+</article>
+
+
+
+</html>

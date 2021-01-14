@@ -6,7 +6,25 @@
     <description>Recent content on My blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Mon, 11 Jan 2021 15:29:12 +0800</lastBuildDate><atom:link href="https://yangdwx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Jan 2021 19:14:59 +0800</lastBuildDate><atom:link href="https://yangdwx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CSS基础知识点</title>
+      <link>https://yangdwx.github.io/posts/css%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 14 Jan 2021 19:14:59 +0800</pubDate>
+      
+      <guid>https://yangdwx.github.io/posts/css%E7%AC%94%E8%AE%B0/</guid>
+      <description>CSS基础知识点 文档流   流动方向
+  inline 元素从左到右，到达最右边才会换行。
+  block 元素从上到下，没一个元素都占独立的一行，新元素会另起一行。
+  inline-block 元素从左到右，到达最右边才会换行，但不会强行拆分元素。
+   新的 HTML5 里可以不分内联元素和块级元素，具体情况由默认样式决定，可以设定更改。
+  inline-block 元素不会有外边距合并现象。
+  非特定情况下永远不要写width: 100%。
+       宽度
+ inline 宽度为内部 inline 元素的和自适应，不能用 width 属性进行设置。 block 默认自动计算宽度，可以用 width 属性进行设置。 inline-block 结合前两者特点，可以设置宽度。    高度
+ inline 高度由 line-height 间接决定，跟 height 无关。 block 高度由内部文档流元素决定，可以用 height 值进行设置。 inline-block 与 block 类似，可以设置高度。    overflow</description>
+    </item>
+    
     <item>
       <title>HTML笔记2</title>
       <link>https://yangdwx.github.io/posts/html%E7%AC%94%E8%AE%B02/</link>
