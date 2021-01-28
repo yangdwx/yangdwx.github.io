@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<title>HTTP | My blog</title>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.79.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://yangdwx.github.io/css/index.css">
+<link rel="canonical" href="https://yangdwx.github.io/posts/http/">
+<link rel="alternate" type="application/rss+xml" href="" title="My blog">
+
+<header>
+  
+    <a href="https://yangdwx.github.io/">My blog</a>
+  
+  
+</header>
+
+<article>
+  <header>
+    <h1>HTTP</h1>
+    <time datetime="2021-01-28T13:46:01&#43;08:00">January 28, 2021</time>
+  </header>
+  <h1 id="url">url</h1>
+<h2 id="统一资源定位符uniform-resource-locator">统一资源定位符（Uniform Resource Locator）</h2>
+<ul>
+<li>完整的URL包括协议+域名/IP+端口+路径+查询字符串+锚点。</li>
+<li>通过 URL 可以确定一个「唯一的」地址（网址）。</li>
+</ul>
+<h3 id="internet-protocal">Internet Protocal</h3>
+<ul>
+<li>
+<p>主要约定了两件事：</p>
+<ol>
+<li>如何定位一台设备。</li>
+<li>如何封装数据报文，跟其他设备交流。</li>
+</ol>
+</li>
+<li>
+<p>IP 分为内网和外网，由路由器作为网关控制中转。</p>
+</li>
+<li>
+<p>如何获取外网 IP</p>
+<ul>
+<li>
+<p>当路由器连接上宽带运营商的服务器，那么路由器就会有一个外网 IP，比如「14.17.32.211」就是一个外网 IP，这个就是你在互联网中的地址。</p>
+</li>
+<li>
+<p>路由器没有固定的外网 IP，比如当你重启路由器，可能会被重新分配一个外网 IP</p>
+</li>
+</ul>
+</li>
+<li>
+<p>内网 IP</p>
+<ul>
+<li>路由器会在家里穿件一个内网，内网中的设备使用内网 IP，一般来说内网 IP 格式都是 192.168.XXX.XXX。</li>
+<li>一般路由器会给自己分配一个好记的内网 IP，比如 192.168.1.1</li>
+<li>然后路由会给没一个内网中的设备分配一个不同的内网 IP，比如电脑是 192.168.1.2，第一台手机试 192.168.1.3，以此类推。</li>
+</ul>
+</li>
+<li>
+<p>路由器的功能</p>
+<ul>
+<li>
+<p>路由器有两个 IP，一个外网 IP 和一个内网 IP。</p>
+</li>
+<li>
+<p>内网中的设备可以相互访问，但是不能直接访问外网。</p>
+</li>
+<li>
+<p>内网设备想要访问外网，就必须经过路由器中转。</p>
+</li>
+<li>
+<p>外网中的设备可以相互访问，但无法访问内网。</p>
+</li>
+<li>
+<p>外网设备想把内容发送到内网，也必须通过路由器中转。</p>
+</li>
+<li>
+<p>路由器也被叫做「网关」。</p>
+<blockquote>
+<p>几个特殊的 IP ：</p>
+<ul>
+<li>127.0.0.1 表示自己</li>
+<li>localhost 通过 hosts 指定为自己</li>
+<li>0.0.0.0 不表示任何设备</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="端口-port">端口 port</h3>
+<p><strong>一台服务器可以提供很多服务，个服务对应一个号码，这个号码叫做端口号port</strong></p>
+<ul>
+<li>
+<p>一台机器可以提供不同服务</p>
+<ul>
+<li>提供 HTTP 服务最好使用 80 端口</li>
+<li>提供 HTTPS 服务最好使用 443 端口</li>
+<li>提供 FTP 服务最好使用 21 端口</li>
+<li>一个有 65545 个端口</li>
+</ul>
+<blockquote>
+<p><a href="https://zh.wikipedia.org/wiki/TCP/UDP%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8#0.E5.88.B01023.E5.8F.B7.E7.AB.AF.E5.8F.A3">具体端口列表</a></p>
+</blockquote>
+</li>
+<li>
+<p>部分端口使用规则</p>
+<ul>
+<li>0 到 1023 一共 1024 个端口是留给系统使用的。</li>
+<li>只有拥有了管理员权限后才可以使用系统的端口。</li>
+<li>一个端口被占用，就只能换一个端口。</li>
+</ul>
+<blockquote>
+<p>IP 和端口缺一不可</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="域名">域名</h3>
+<p><strong>域名就是对 IP 的别称</strong></p>
+<ul>
+<li>
+<p>一个域名可以对应不同 IP，这个叫做均衡负载，防止访问流量过大一台服务器过载。</p>
+</li>
+<li>
+<p>一个 IP 可以得应不同域名，这个叫做共享主机。</p>
+</li>
+<li>
+<p>域名和 IP 是通过 DNS 对应起来的。</p>
+<ul>
+<li>当输入域名时，chrome 浏览器会向宽带运营商提供的 DNS 服务器询问输入的域名对应什么 。</li>
+<li>DNF 服务器会回答一个 IP</li>
+<li>然后浏览器向对应 IP 的 80/443 端口发送请求</li>
+<li>返回请求内容。</li>
+</ul>
+</li>
+<li>
+<p>可 nslookup 用于查询DNS的记录，查询域名解析是否正常，在网络故障时用来诊断网络问题。</p>
+<blockquote>
+<p>ping 出来是本地区的服务器的地址，而 nslookup 是所有的地址。</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  ~ nslookup qq.com
+Server:		192.168.1.1
+Address:	192.168.1.1#53
+  
+Non-authoritative answer:
+Name:	qq.com
+Address: 123.151.137.18
+Name:	qq.com
+Address: 183.3.226.35
+Name:	qq.com
+Address: 61.129.7.47
+</code></pre></div></li>
+<li>
+<p>www.xiedailama 和 xiedaimala.com 不是同一个域名</p>
+<ul>
+<li>com 是顶级域名</li>
+<li>xiedaimala.com 是二级域名（俗称一级域名）</li>
+<li><a href="http://www.xiedaimala.com">www.xiedaimala.com</a> 是三级域名（俗称二级域名）</li>
+<li>他们是父子关系</li>
+</ul>
+</li>
+</ul>
+<h3 id="路径">路径</h3>
+<p><strong>路径可以做到请求不同的页面，比如：</strong></p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML">https://developer.mozilla.org/zh-CN/docs/Web/HTML</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS">https://developer.mozilla.org/zh-CN/docs/Web/CSS</a></li>
+</ul>
+<h3 id="查询参数">查询参数</h3>
+<p><strong>查询参数可以做到同一个页面，不同内容，比如：</strong></p>
+<ul>
+<li><a href="https://www.baidu.com/s?wd=hi">https://www.baidu.com/s?wd=hi</a></li>
+<li><a href="https://www.baidu.com/s?wd=hello">https://www.baidu.com/s?wd=hello</a></li>
+</ul>
+<h3 id="锚点">锚点</h3>
+<p><strong>锚点可以做到同一个内容，不同位置，比如：</strong></p>
+<ul>
+<li>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS#">https://developer.mozilla.org/zh-CN/docs/Web/CSS#</a>参考书</p>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS#">https://developer.mozilla.org/zh-CN/docs/Web/CSS#</a>教程</p>
+<blockquote>
+<p>锚点看起来有中文，实际不支持中文，#后边的中文字符会变成一串字符。</p>
+<p>锚点是无法在 Network 面板看到的，因为锚点不会传给服务器。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="curl-命令">curl 命令</h2>
+<ul>
+<li>
+<p>用 curl 可以发送 HTTP 请求</p>
+<p><code>curl -s -v -H “key: value” -- &quot;https://www.baidu.com&quot;</code></p>
+<ul>
+<li>-v 表示请求详细信息</li>
+<li>-X 指定请求方式</li>
+<li>-H 增加头部信息</li>
+</ul>
+</li>
+<li>
+<p>相关概念</p>
+<ul>
+<li>URL 会被 curl 工具重写，先请求 DNS 获得 IP。</li>
+<li>先进性 TCP 链接，TCP 链接成功后，开始发送 HTTP 请求</li>
+<li>请求内容</li>
+<li>响应内容</li>
+<li>响应结束后，关闭 TCP 链接</li>
+<li>真正结束</li>
+</ul>
+</li>
+</ul>
+
+</article>
+
+
+
+</html>

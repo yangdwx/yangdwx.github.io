@@ -6,7 +6,24 @@
     <description>Recent content on My blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Thu, 14 Jan 2021 19:14:59 +0800</lastBuildDate><atom:link href="https://yangdwx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Jan 2021 13:46:01 +0800</lastBuildDate><atom:link href="https://yangdwx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTTP</title>
+      <link>https://yangdwx.github.io/posts/http/</link>
+      <pubDate>Thu, 28 Jan 2021 13:46:01 +0800</pubDate>
+      
+      <guid>https://yangdwx.github.io/posts/http/</guid>
+      <description>url 统一资源定位符（Uniform Resource Locator）  完整的URL包括协议+域名/IP+端口+路径+查询字符串+锚点。 通过 URL 可以确定一个「唯一的」地址（网址）。  Internet Protocal   主要约定了两件事：
+ 如何定位一台设备。 如何封装数据报文，跟其他设备交流。    IP 分为内网和外网，由路由器作为网关控制中转。
+  如何获取外网 IP
+  当路由器连接上宽带运营商的服务器，那么路由器就会有一个外网 IP，比如「14.17.32.211」就是一个外网 IP，这个就是你在互联网中的地址。
+  路由器没有固定的外网 IP，比如当你重启路由器，可能会被重新分配一个外网 IP
+    内网 IP
+ 路由器会在家里穿件一个内网，内网中的设备使用内网 IP，一般来说内网 IP 格式都是 192.168.XXX.XXX。 一般路由器会给自己分配一个好记的内网 IP，比如 192.168.1.1 然后路由会给没一个内网中的设备分配一个不同的内网 IP，比如电脑是 192.168.1.2，第一台手机试 192.168.1.3，以此类推。    路由器的功能
+  路由器有两个 IP，一个外网 IP 和一个内网 IP。
+  内网中的设备可以相互访问，但是不能直接访问外网。</description>
+    </item>
+    
     <item>
       <title>CSS基础知识点</title>
       <link>https://yangdwx.github.io/posts/css%E7%AC%94%E8%AE%B0/</link>
