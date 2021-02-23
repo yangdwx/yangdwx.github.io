@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<title>JavaScript 数据类型 | My blog</title>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.79.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://yangdwx.github.io/css/index.css">
+<link rel="canonical" href="https://yangdwx.github.io/posts/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+<link rel="alternate" type="application/rss+xml" href="" title="My blog">
+
+<header>
+  
+    <a href="https://yangdwx.github.io/">My blog</a>
+  
+  
+</header>
+
+<article>
+  <header>
+    <h1>JavaScript 数据类型</h1>
+    <time datetime="2021-02-23T23:05:21&#43;08:00">February 23, 2021</time>
+  </header>
+  <h3 id="javascript-数据类型">JavaScript 数据类型</h3>
+<h2 id="数据类型">数据类型</h2>
+<ol>
+<li>
+<p><strong>number</strong></p>
+<ul>
+<li>
+<p>整数和浮点数：JavaScript 内部的所有数字都是以 64 位浮点数形式储存，浮点数不是精确的值。</p>
+</li>
+<li>
+<p>科学记数法：</p>
+<p>小数点前边的数字多于 21 位和小数点后的零多余 5 个，JavaScript 会自动将数值转为科学计数法表示，其他情况都采用字面形式直接表示。</p>
+</li>
+<li>
+<p>二进制：有前缀<code>0b</code>或者<code>0B</code>的数值：<code>0b11</code>。</p>
+</li>
+<li>
+<p>十六进制：有前缀<code>0x</code>或<code>0X</code>的数值。</p>
+</li>
+<li>
+<p>正零和负零：JavaScript 内部实际上存在2个0：一个是<code>+0</code>，一个是<code>-0</code>，区别就是64位浮点数表示法的符号位不同。它们是等价的。</p>
+</li>
+<li>
+<p><code>+0</code>或<code>-0</code>当作分母返回的值是不相等的：<code>+Infinity !== -Infinity</code></p>
+</li>
+<li>
+<p>NaN：<code>NaN</code>是 JavaScript 的特殊值，表示“非数字”（Not a Number），<strong>数据类型依然属于Number</strong>，NaN不等于任何值，包括它本身。</p>
+</li>
+<li>
+<p>Infinity：<code>Infinity</code>表示“无穷”，用来表示两种场景。一种是一个正的数值太大（大于等于2的1024次方），或一个负的数值太小（小于等于2的-1075），无法表示；另一种是非0数值除以0，得到<code>Infinity</code>。</p>
+<p>Infinity大于一切数值（除了NaN），-Infinity小于一切数值（除了NaN）。</p>
+</li>
+<li>
+<p>parseInt()</p>
+<ul>
+<li>
+<p>用于将字符串转为整数</p>
+<p>字符串转为整数的时候，是一个个字符依次转换，如果遇到不能转为数字的字符，就不再进行下去，返回已经转好的部分。如果字符串的第一个字符不能转化为数字（后面跟着数字的正负号除外），返回NaN。如果字符串以0x或0X开头，parseInt会将其按照十六进制数解析。无法转换科学记数法表示的数字和自动会被JS转化为科学记数法的数字。</p>
+</li>
+<li>
+<p>进制转换</p>
+<p><code>parseInt()</code>方法还可以接受第二个参数（2到36之间，超出范围返回<code>NaN</code> ，如果第二个参数是0、<code>undefined</code>和<code>null</code>，则直接忽略。），表示被解析的值的进制，返回该值对应的十进制数。默认情况下，<code>parseInt</code>的第二个参数为10，即默认是十进制转十进制（ES5）。</p>
+<p>如果字符串包含对于指定进制无意义的字符，则从最高位开始，只返回可以转换的数值。如果最高位无法转换，则直接返回NaN。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>parseFloat()</p>
+<ul>
+<li><code>parseFloat</code>方法用于将一个字符串转为浮点数， 如果字符串符合科学计数法，则会进行相应的转换。</li>
+<li><code>parseFloat</code>会将空字符串、布尔值和<code>Null</code>转为<code>NaN</code>。</li>
+</ul>
+</li>
+<li>
+<p>isNaN()</p>
+<ul>
+<li>isNaN方法可以用来判断一个值是否为NaN, 只对数值有效。</li>
+</ul>
+</li>
+<li>
+<p>isFinite()</p>
+<ul>
+<li>isFinite方法返回一个布尔值，表示某个值是否为正常的数值。除了Infinity、-Infinity、NaN和undefined这几个值会返回false，isFinite对于其他的数值都会返回true。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>string</strong></p>
+<ul>
+<li>
+<p>零个或多个排在一起的字符，放在单引号或双引号之中。字符串默认只能写在一行内，分成多行将会报错。如果长字符串必须分成多行，可以在每一行的尾部使用反斜杠，后边只能跟换行符，不能跟其他字符。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">longString</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Long \
+</span><span style="color:#e6db74">long \
+</span><span style="color:#e6db74">long \
+</span><span style="color:#e6db74">string&#39;</span>;
+     
+<span style="color:#a6e22e">longString</span>
+<span style="color:#75715e">// &#34;Long long long string&#34;
+</span><span style="color:#75715e"></span>     
+</code></pre></div><p>连接运算符（+）可以连接多个单行字符串，将长字符串拆成多行书写，输出的时候也是单行。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">longString</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Long &#39;</span>
+  <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;long &#39;</span>
+  <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;long &#39;</span>
+  <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;string&#39;</span>;
+</code></pre></div></li>
+<li>
+<p>转义</p>
+<p>反斜杠（\）在字符串内有特殊含义，用来表示一些特殊字符，所以又称为转义符。在非特殊字符前面使用反斜杠，则反斜杠会被省略。</p>
+<p><code>\0</code>  ：<code>null（\u0000）</code></p>
+<p><code>\b</code>  ：<code>后退键（\u0008）</code></p>
+<p><code>\f</code>  ：<code>换页符（\u000C）</code></p>
+<p><code>\n</code>  ：<code>换行符（\u000A）</code></p>
+<p><code>\r</code>  ：<code>回车键（\u000D）</code></p>
+<p><code>\t</code>  ：<code>制表符（\u0009）</code></p>
+<p><code>\v</code>  ：<code>垂直制表符（\u000B）</code></p>
+<p><code>\'</code>  ：<code>单引号（\u0027）</code></p>
+<p><code>\&quot;</code>  ：<code>双引号（\u0022）</code></p>
+<p><code>\\</code>  ：<code>反斜杠（\u005C）</code></p>
+</li>
+<li>
+<p>字符串可以使用数组的方括号运算符，用来返回某个位置的字符，<strong>只能读取，无法进行删改操作</strong>，如果方括号中的数字超过字符串的长度，或者方括号中不是数字，则返回<code>undefined</code>。 <code>string.length</code>属性返回字符串的长度。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">s</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hello&#39;</span>;
+<span style="color:#a6e22e">s</span>[<span style="color:#ae81ff">0</span>] <span style="color:#75715e">// &#34;h&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">s</span>[<span style="color:#ae81ff">1</span>] <span style="color:#75715e">// &#34;e&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">s</span>[<span style="color:#ae81ff">4</span>] <span style="color:#75715e">// &#34;o&#34;
+</span><span style="color:#75715e"></span>     
+<span style="color:#75715e">// 直接对字符串使用方括号运算符
+</span><span style="color:#75715e"></span><span style="color:#e6db74">&#39;hello&#39;</span>[<span style="color:#ae81ff">1</span>] <span style="color:#75715e">// &#34;e&#34;
+</span><span style="color:#75715e"></span>     
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">s</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hello&#39;</span>;
+<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">length</span> <span style="color:#75715e">// 5
+</span></code></pre></div></li>
+<li>
+<p>Base64 转码（不适合非 ASCII 码的字符）
+btoa()：任意值转为 Base64 编码。
+atob()：Base64 编码转为原来的值。
+要将非ASCII码字符转为Base64编码，必须中间插入一个转码环节</p>
+</li>
+</ul>
+</li>
+<li>
+<p>null</p>
+<p><code>null</code>表示空值，即该处的值现在为空。调用函数时，某个参数未设置任何值，这时就可以传入<code>null</code>，表示该参数为空。<code>null</code>在运算中可以自动转为0。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">Number(<span style="color:#66d9ef">null</span>) <span style="color:#75715e">// 0
+</span><span style="color:#75715e"></span><span style="color:#ae81ff">5</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">null</span> <span style="color:#75715e">// 5
+</span></code></pre></div></li>
+<li>
+<p>undefined</p>
+<p>undefined表示“未定义”，应用场景：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// 变量声明了，但没有赋值
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span>;
+<span style="color:#a6e22e">i</span> <span style="color:#75715e">// undefined
+</span><span style="color:#75715e"></span>   
+<span style="color:#75715e">// 调用函数时，应该提供的参数没有提供，该参数等于 undefined
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">f</span>(<span style="color:#a6e22e">x</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x</span>;
+}
+<span style="color:#a6e22e">f</span>() <span style="color:#75715e">// undefined
+</span><span style="color:#75715e"></span>   
+<span style="color:#75715e">// 对象没有赋值的属性
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span>  <span style="color:#a6e22e">o</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Object();
+<span style="color:#a6e22e">o</span>.<span style="color:#a6e22e">p</span> <span style="color:#75715e">// undefined
+</span><span style="color:#75715e"></span>   
+<span style="color:#75715e">// 函数没有返回值时，默认返回 undefined
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">f</span>() {}
+<span style="color:#a6e22e">f</span>() <span style="color:#75715e">// undefined
+</span></code></pre></div></li>
+<li>
+<p>boolean</p>
+<p>布尔值代表“真”和“假”两个状态。“真”用关键字true表示，“假”用关键字false表示，只有这两个值，通常用于程序流程的控制。在JS中，<code>undefined</code> <code>null</code> <code>false</code> <code>0</code> <code>NaN</code> <code>&quot;&quot;</code>都会被转为<code>false</code>。其他都转为<code>true</code>，包括空数组和空对象。
+a &amp;&amp; b 在 a 和 b 都为 true 时，取值为 true；否则为 false。
+a || b 在 a 和 b 都为 false 时，取值为 false；否则为 true。</p>
+</li>
+<li>
+<p>symbol（ES6）</p>
+</li>
+<li>
+<p>object</p>
+<ul>
+<li>
+<p>对象就是一组“键值对”（key-value）的集合，是一种<strong>无序</strong>的复合数据集合。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">foo</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Hello&#39;</span>,
+  <span style="color:#a6e22e">bar</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;World&#39;</span>
+};
+</code></pre></div></li>
+<li>
+<p>对象的所有键名都是字符串，JS会自动将键名转换为字符转形式。如果键名不符合标识名的条件（比如第一个字符为数字，或者含有空格或运算符），且也不是数字，则必须加上引号，否则会报错。</p>
+</li>
+<li>
+<p>对象的每一个键名又称为“属性”（property），它的“键值”可以是任何数据类型。如果一个属性的值为函数，通常把这个属性称为“方法”，它可以像函数那样调用。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">p</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">x</span>) {
+   <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">x</span>;
+  }
+};
+     
+<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">p</span>(<span style="color:#ae81ff">1</span>) <span style="color:#75715e">// 2
+</span></code></pre></div><p>上文中对象 <code>obj</code> 的属性<code>p</code> 的值为一个函数，可以直接调用该函数。</p>
+</li>
+<li>
+<p>如果属性的值还是一个对象，就形成了链式引用。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">o1</span> <span style="color:#f92672">=</span> {};
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">o2</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">bar</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;hello&#39;</span> };
+     
+<span style="color:#a6e22e">o1</span>.<span style="color:#a6e22e">foo</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">o2</span>;
+<span style="color:#a6e22e">o1</span>.<span style="color:#a6e22e">foo</span>.<span style="color:#a6e22e">bar</span> <span style="color:#75715e">// &#34;hello&#34;
+</span></code></pre></div></li>
+<li>
+<p>属性的操作</p>
+<ul>
+<li>
+<p>属性的读取</p>
+<p>一种是使用点运算符， 一种是使用方括号运算符。如果使用方括号运算符，键名必须放在引号里面，否则会被当作变量处理，<strong>如果key的值是变量，则只能使用方括号运算符，且不能加引号。</strong> 数值键名不能使用点运算符。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">p</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Hello World&#39;</span>
+};
+       
+<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">p</span> <span style="color:#75715e">// &#34;Hello World&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">obj</span>[<span style="color:#e6db74">&#39;p&#39;</span>] <span style="color:#75715e">// &#34;Hello World&#34;
+</span></code></pre></div></li>
+<li>
+<p>属性的赋值</p>
+<p>点运算符和方括号运算符，不仅可以用来读取值，还可以用来赋值。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {};
+       
+<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">foo</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Hello&#39;</span>;
+<span style="color:#a6e22e">obj</span>[<span style="color:#e6db74">&#39;bar&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;World&#39;</span>;
+</code></pre></div></li>
+<li>
+<p>属性的查看</p>
+<p>查看一个对象本身的所有属性，可以使用<code>Object.keys(obj)</code>方法。</p>
+<p>查看自身+共有属性，可以用<code>console.dir(obj)</code>方法。</p>
+<p>判断一个属性是自身的还是共有的：<code>obj.hasOwnProperty('toString')</code>。</p>
+</li>
+<li>
+<p>属性的删除：delete 命令</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">p</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span> };
+Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">obj</span>) <span style="color:#75715e">// [&#34;p&#34;]
+</span><span style="color:#75715e"></span>       
+<span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">p</span> <span style="color:#75715e">// true
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">p</span> <span style="color:#75715e">// undefined
+</span><span style="color:#75715e"></span>Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">obj</span>) <span style="color:#75715e">// []
+</span></code></pre></div><p>如果只想删除一个键值对的 <code>value</code> 保留<code>key</code>，可以使用<code>obj.p = undefined</code> 的方法操作。
+delete命令只能删除对象本身的属性，无法删除继承的属性。</p>
+</li>
+<li>
+<p>属性是否存在：in 运算符</p>
+<p>in运算符用于检查对象是否包含某个属性（注意，检查的是键名，不是键值），如果包含就返回true，否则返回false。它的左边是一个字符串，表示属性名，右边是一个对象。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">p</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span> };
+<span style="color:#e6db74">&#39;p&#39;</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">obj</span> <span style="color:#75715e">// true
+</span><span style="color:#75715e"></span><span style="color:#e6db74">&#39;toString&#39;</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">obj</span> <span style="color:#75715e">// true
+</span></code></pre></div></li>
+<li>
+<p>属性的遍历：for…in 循环</p>
+<p>for…in循环用来遍历一个对象的全部属性。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">b</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">c</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span>};
+       
+<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">obj</span>) {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;键名：&#39;</span>, <span style="color:#a6e22e">i</span>);
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;键值：&#39;</span>, <span style="color:#a6e22e">obj</span>[<span style="color:#a6e22e">i</span>]);
+}
+<span style="color:#75715e">// 键名： a
+</span><span style="color:#75715e">// 键值： 1
+</span><span style="color:#75715e">// 键名： b
+</span><span style="color:#75715e">// 键值： 2
+</span><span style="color:#75715e">// 键名： c
+</span><span style="color:#75715e">// 键值： 3
+</span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>对象的隐藏属性</p>
+<ul>
+<li>
+<p>JavaScript 中每一个对象都有一个隐藏属性。</p>
+</li>
+<li>
+<p>这个隐藏属性储存着其<strong>共有属性组成的对象</strong>的地址。</p>
+</li>
+<li>
+<p>这个<strong>共有属性组成的对象</strong>叫做<strong>原型</strong>。</p>
+</li>
+<li>
+<p>也就是说，隐藏属性储存着原型的地址。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {}
+<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">toString</span>()  <span style="color:#75715e">//代码未报错
+</span><span style="color:#75715e">//因为 obj 的隐藏属性对应的对象上有 toString()方法
+</span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>修改或增加共有属性</p>
+<ul>
+<li>
+<p>无法通过自身修改或增加共有属性</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {}, <span style="color:#a6e22e">obj2</span> <span style="color:#f92672">=</span> {} <span style="color:#75715e">//共有 toString
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">toString</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;xxx&#39;</span> <span style="color:#75715e">//只会修改 obj 自身属性，obj2.toString 还是在原型上。
+</span></code></pre></div></li>
+<li>
+<p>如果一定要修改或增加原型上的属性</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">__porto__</span>.<span style="color:#a6e22e">toString</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;xxx&#39;</span> <span style="color:#75715e">//不推荐使用
+</span><span style="color:#75715e"></span>Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toString</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;xxx&#39;</span>
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">obj2</span> <span style="color:#f92672">=</span> Object.<span style="color:#a6e22e">create</span>(<span style="color:#a6e22e">common</span>)<span style="color:#75715e">//推荐使用，意思是创建对象的时候一开始就改。
+</span><span style="color:#75715e">//一般来说不要修改原型，会引起很多问题
+</span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+</article>
+
+
+
+</html>

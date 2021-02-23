@@ -6,7 +6,34 @@
     <description>Recent content on My blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Tue, 02 Feb 2021 18:12:37 +0800</lastBuildDate><atom:link href="https://yangdwx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Feb 2021 23:05:21 +0800</lastBuildDate><atom:link href="https://yangdwx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript 数据类型</title>
+      <link>https://yangdwx.github.io/posts/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Tue, 23 Feb 2021 23:05:21 +0800</pubDate>
+      
+      <guid>https://yangdwx.github.io/posts/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
+      <description>JavaScript 数据类型 数据类型   number
+  整数和浮点数：JavaScript 内部的所有数字都是以 64 位浮点数形式储存，浮点数不是精确的值。
+  科学记数法：
+小数点前边的数字多于 21 位和小数点后的零多余 5 个，JavaScript 会自动将数值转为科学计数法表示，其他情况都采用字面形式直接表示。
+  二进制：有前缀0b或者0B的数值：0b11。
+  十六进制：有前缀0x或0X的数值。
+  正零和负零：JavaScript 内部实际上存在2个0：一个是+0，一个是-0，区别就是64位浮点数表示法的符号位不同。它们是等价的。
+  +0或-0当作分母返回的值是不相等的：+Infinity !== -Infinity
+  NaN：NaN是 JavaScript 的特殊值，表示“非数字”（Not a Number），数据类型依然属于Number，NaN不等于任何值，包括它本身。
+  Infinity：Infinity表示“无穷”，用来表示两种场景。一种是一个正的数值太大（大于等于2的1024次方），或一个负的数值太小（小于等于2的-1075），无法表示；另一种是非0数值除以0，得到Infinity。
+Infinity大于一切数值（除了NaN），-Infinity小于一切数值（除了NaN）。
+  parseInt()
+  用于将字符串转为整数
+字符串转为整数的时候，是一个个字符依次转换，如果遇到不能转为数字的字符，就不再进行下去，返回已经转好的部分。如果字符串的第一个字符不能转化为数字（后面跟着数字的正负号除外），返回NaN。如果字符串以0x或0X开头，parseInt会将其按照十六进制数解析。无法转换科学记数法表示的数字和自动会被JS转化为科学记数法的数字。
+  进制转换
+parseInt()方法还可以接受第二个参数（2到36之间，超出范围返回NaN ，如果第二个参数是0、undefined和null，则直接忽略。），表示被解析的值的进制，返回该值对应的十进制数。默认情况下，parseInt的第二个参数为10，即默认是十进制转十进制（ES5）。
+如果字符串包含对于指定进制无意义的字符，则从最高位开始，只返回可以转换的数值。如果最高位无法转换，则直接返回NaN。
+    parseFloat()
+ parseFloat方法用于将一个字符串转为浮点数， 如果字符串符合科学计数法，则会进行相应的转换。 parseFloat会将空字符串、布尔值和Null转为NaN。    isNaN()</description>
+    </item>
+    
     <item>
       <title>JavaScript 历史</title>
       <link>https://yangdwx.github.io/posts/javascript-%E5%8E%86%E5%8F%B2/</link>
